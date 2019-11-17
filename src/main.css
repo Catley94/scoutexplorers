@@ -15,3 +15,11 @@ td, th {
     text-align: center;
     padding: 8px;
   }
+
+h1 {
+  color: #003a82;
+}
+
+h2, h3 {
+  color: #7414dc;
+}
