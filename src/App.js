@@ -44,7 +44,7 @@ function App() {
               <tr>
                 <th>22/11/19</th>
                 <td>Fundraising</td>
-                <td>Notes:</td>
+                <td>Notes: We will be creating things that can be sold during "Late night shopping"</td>
               </tr>
               <tr>
                 <th>29/11/19</th>
