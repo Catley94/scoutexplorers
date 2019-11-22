@@ -5,29 +5,27 @@ import scoutLogo from './media/Scouts.png';
 
 function App() {
   return (
-    <div className="App">
-      <div className="jumbotron text-center">
-        <div className="row">
-          <div className="col-sm-6">
+    <div className="app">
+      <div className="">
+        <div className="">
+          <div className="">
           <img className="explorerImg" src={explorerLogo} />
           </div>
-          <div className="col-sm-6">
+          <div className="">
           <img className="scoutImg" src={scoutLogo} />
           </div>
         </div>
       </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12 text-center">
-            <h1><b>Goudhurst Explorers</b></h1>
+      <div className="contentContainer">
+        <div className="">
+          <div className="">
+            <h1 className="goudhurstExplorerHeader"><b>Goudhurst Explorers</b></h1>
             <br />
           </div>
-          <div className="col-sm-12 text-center">
-          <p>
+          <p className="goudhurstExplorerSummary">
             Explorers are the next <s>troop</s> <u>unit</u> after Scouts, our age group ranges from 14 - 18 years old. We meet on Friday evenings between 7 - 9PM.
           </p>
-          </div>
-          <div className="col-sm-12">
+          <div className="">
           <h3>A little bit about us from the scout website</h3>
           <p>
             With the support, direction and guidance of Unit leaders, Explorer Scouts are encouraged to lead themselves, design their own programme and work towards the top awards that Scouting offers. 
@@ -36,8 +34,8 @@ function App() {
             </p>
         </div>
         </div>
-        <div className="row">
-          <div className="col-sm-12">
+        <div className="">
+          <div className="">
             <h3>Schedule</h3>
             <br />
             <table>
@@ -64,14 +62,14 @@ function App() {
             </table>
           </div>
         </div>
-        <div className="row">
-          <div className="col-sm-12">
+        <div className="">
+          <div className="">
             <br />
             <p>If you have any questions please don't hesitate to ask, please click <a href="mailto:goudhurstexplorergroup@hotmail.com">here</a> to email us.</p>
           </div>
         </div> 
-        <div className="row">
-          <div className="col-sm-12">            
+        <div className="">
+          <div className="">            
             <br/>
             <i>
               This website is currently in development and will likely change mutliple times. 
