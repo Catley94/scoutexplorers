@@ -54,7 +54,7 @@ function App() {
               <tr>
                 <th>06/12/19</th>
                 <td>Mince Pies, Christmas Decorations, Christmas themed games</td>
-                <td>Notes:</td>
+                <td>Notes: Please bring along any ingrediants/ideas/resources for christmas related things!</td>
               </tr>
               <tr>
                 <th>13/12/19</th>
