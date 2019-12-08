@@ -58,8 +58,9 @@ function App() {
               </tr>
               <tr>
                 <th>13/12/19</th>
-                <td>Mince Pies, Christmas Decorations, Christmas themed games</td>
-                <td>Notes:</td>
+                <td><strong>Jump In @ Tonbridge</strong></td>
+                <td>Notes: <strong>7PM - 9PM</strong>, Please drop off and pick up your explorer at the below address.<br/>
+                Address: <strong>2, Morley Rd, Tonbridge TN9 1RA</strong></td>
               </tr>
             </table>
           </div>
