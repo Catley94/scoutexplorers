@@ -3,9 +3,9 @@ import '../main.css';
 import explorerLogo from '../media/Explorers.png';
 import scoutLogo from '../media/Scouts.png';
 
-const Body = (props) => {
-  
-
+const Body = props => {
+  console.log('props.firstFridayDate')
+  console.log(props.firstFridayDate)
   return (
     <div className="App">
       <div className="jumbotron text-center">
@@ -41,7 +41,7 @@ const Body = (props) => {
         <div className="row">
           <div className="col-sm-12">
             <h3>Schedule</h3>
-  <h3>Today is {props.getTimeDate}, the next explorer session is {props.firstFriday}</h3>
+  <h3>Today is {props.getTimeDate}, the next explorer session is {props.firstFridayDate}</h3>
             <br />
             <table>
               <tbody>

@@ -2,25 +2,30 @@ import React from 'react';
 import './main.css';
 import explorerLogo from './media/Explorers.png';
 import scoutLogo from './media/Scouts.png';
-import Body from './Body/Body'
+import Body from './Body/Body';
 
 class App extends React.Component {
-  
+  constructor(props) {
+    super(props);
+
+  }
   currentDay = "";
   d = new Date();
   editableDate = new Date();
   currentDayNumber = this.d.getDay();
   friday = 5;
   firstFriday;
+  
   secondFriday;
   thirdFriday;
   fourthFriday;
   fifthFriday;
   latestDateResult;
   days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  firstFridayDate;
+  firstFridayMonth;
   updateDay() {
-    console.log('updateDay this.d')
-    console.log(this.d)
     this.currentDay = this.days[this.d.getDay()];
   }
 
@@ -46,8 +51,14 @@ componentDidMount() {
 }
   updateDates() {
     this.firstFriday = this.findDates(this.friday, this.editableDate);
-    console.log('this.firstFriday')
-    console.log(this.firstFriday)
+    // console.log('this.firstFriday')
+    // console.log(this.firstFriday)
+    // console.log(this.firstFriday.getDate(), this.firstFriday.getMonth())
+    // console.log(this.firstFriday.getDate(), this.months[this.firstFriday.getMonth()])
+    
+    this.firstFridayDate = this.firstFriday.getDate();
+    this.firstFridayMonth = this.firstFriday.getMonth();
+    console.log(this.firstFridayDate)
     this.secondFriday = this.findDates(this.friday, this.firstFriday)
     console.log('this.secondFriday')
     console.log(this.secondFriday)
@@ -71,6 +82,8 @@ componentDidMount() {
         <Body 
           getTimeDate={this.currentDay}
           firstFriday={this.firstFriday}
+          firstFridayDate={this.firstFridayDate}
+          firstFridayMonth={this.firstFridayMonth}
         />
       </div>
     );
@@ -78,9 +91,9 @@ componentDidMount() {
   }
   
 }
-function getTimeDate() {
-  let d = new Date();
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  return days[d.getDay()]
-}
+// function getTimeDate() {
+//   let d = new Date();
+//   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+//   return days[d.getDay()]
+// }
 export default App;
