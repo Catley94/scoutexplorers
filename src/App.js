@@ -41,27 +41,28 @@ function App() {
             <h3>Schedule</h3>
             <br />
             <table>
-              <tr>
-                <th>22/11/19</th>
-                <td>Fundraising</td>
-                <td>Notes: We will be creating things that can be sold during "Late night shopping"</td>
-              </tr>
-              <tr>
-                <th>29/11/19</th>
-                <td>Games</td>
-                <td>Notes:</td>
-              </tr>
-              <tr>
-                <th>06/12/19</th>
-                <td>Mince Pies, Christmas Decorations, Christmas themed games</td>
-                <td>Notes: Please bring along any ingrediants/ideas/resources for christmas related things!</td>
-              </tr>
-              <tr>
-                <th>13/12/19</th>
-                <td><strong>Jump In @ Tonbridge</strong></td>
-                <td>Notes: <strong>7PM - 9PM</strong>, Please drop off and pick up your explorer at the below address.<br/>
-                Address: <strong>2, Morley Rd, Tonbridge TN9 1RA</strong></td>
-              </tr>
+              <tbody>
+                <tr>
+                  <th>10/01/20</th>
+                  <td>Antarctica Night</td>
+                  <td>Notes: A night of games and sleep over. In order to attend, you must raise atleast £20 beforehand, please see email for more information.</td>
+                </tr>
+                <tr>
+                  <th>17/01/20</th>
+                  <td>Scheduling night</td>
+                  <td>Notes: Will be planning the rest of the term</td>
+                </tr>
+                <tr>
+                  <th>24/01/20</th>
+                  <td>Undecided</td>
+                  <td>Notes:</td>
+                </tr>
+                <tr>
+                  <th>31/01/20</th>
+                  <td>Undecided</td>
+                  <td>Notes:</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
