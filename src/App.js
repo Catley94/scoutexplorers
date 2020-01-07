@@ -7,24 +7,28 @@ import Body from './Body/Body';
 class App extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      firstFridayDate: 0,
+      firstFridayMonth: 0,
+      firstFriday: new Date(),
+      secondFriday: new Date(),
+      thirdFriday: new Date(),
+      fourthFriday: new Date(),
+      editableDate: new Date(),
+    }
   }
   currentDay = "";
   d = new Date();
-  editableDate = new Date();
+  
   currentDayNumber = this.d.getDay();
   friday = 5;
-  firstFriday;
   
-  secondFriday;
-  thirdFriday;
-  fourthFriday;
   fifthFriday;
   latestDateResult;
   days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-  firstFridayDate;
-  firstFridayMonth;
+  
+  
   updateDay() {
     this.currentDay = this.days[this.d.getDay()];
   }
@@ -47,34 +51,46 @@ class App extends React.Component {
 }
 
 componentDidMount() {
+
   this.updateDates();
+  // setInterval(this.updateDates, 1000)
 }
   updateDates() {
-    this.firstFriday = this.findDates(this.friday, this.editableDate);
-    // console.log('this.firstFriday')
-    // console.log(this.firstFriday)
-    // console.log(this.firstFriday.getDate(), this.firstFriday.getMonth())
-    // console.log(this.firstFriday.getDate(), this.months[this.firstFriday.getMonth()])
-    
-    this.firstFridayDate = this.firstFriday.getDate();
-    this.firstFridayMonth = this.firstFriday.getMonth();
-    console.log(this.firstFridayDate)
-    this.secondFriday = this.findDates(this.friday, this.firstFriday)
-    console.log('this.secondFriday')
-    console.log(this.secondFriday)
-    this.thirdFriday = this.findDates(this.friday, this.secondFriday);
-    console.log('this.thirdFriday')
-    console.log(this.thirdFriday)
-    this.fourthFriday = this.findDates(this.friday, this.thirdFriday);
-    console.log('this.fourthFriday')
-    console.log(this.fourthFriday)
-    // this.fifthFriday = this.findDates(this.friday, this.fourthFriday);
-    // console.log('this.fifthFriday')
-    // console.log(this.fifthFriday)
+    let _date = this.findDates(5, this.state.editableDate);
+    this.setState({
+      firstFriday: _date,
+      firstFridayDate: _date.getDate()
+    }, () => {
+      console.log('firstFriday after state update')
+      console.log(this.state.firstFriday)
+    })
+    let _date2 = this.findDates(5, this.state.firstFriday);
+    this.setState({
+      secondFriday: _date2
+    }, () => {
+      console.log('secondFriday after state update')
+      console.log(this.state.secondFriday)
+    })
+    let _date3 = this.findDates(5, this.state.secondFriday);
+    this.setState({
+      thirdFriday: _date3
+    }, () => {
+      console.log('thirdFriday after state update')
+      console.log(this.state.thirdFriday)
+    })
+    let _date4 = this.findDates(5, this.state.thirdFriday);
+    this.setState({
+      fourthFriday: _date4
+    }, () => {
+      console.log('fourthFriday after state update')
+      console.log(this.state.fourthFriday)
+    })
   }
+
   render() {
-    
-  
+
+
+
     this.updateDay();
     // this.updateDates()
     return (
@@ -82,8 +98,8 @@ componentDidMount() {
         <Body 
           getTimeDate={this.currentDay}
           firstFriday={this.firstFriday}
-          firstFridayDate={this.firstFridayDate}
-          firstFridayMonth={this.firstFridayMonth}
+          firstFridayDate={this.state.firstFridayDate}
+          firstFridayMonth={this.state.firstFridayMonth}
         />
       </div>
     );
