@@ -35,15 +35,37 @@ class App extends React.Component {
 
   findDates(dayNumber, date) {
     let diff = date.getDay() - dayNumber;
-    if (diff > 0) {
-        date.setDate(date.getDate() + 6);
+    switch(diff) {
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 6: date.setDate(date.getDate() + 6);
+      console.log('findDates 1-6');
+      break;
+      case 0: date.setDate(date.getDate() + 7);
+      console.log('findDates 0');
+      break;
+      case -1:
+      case -2:
+      case -3:
+      case -4:
+      case -5:
+      case -6: date.setDate(date.getDate() + ((-1) * diff));
+      console.log('findDates -1--6');
+      break;
     }
-    else if (diff < 0) {
-      date.setDate(date.getDate() + ((-1) * diff))
-    }
-    else {
-      date.setDate(date.getDate() + 7);
-    }
+    
+    // if (diff > 0) {
+    //     date.setDate(date.getDate() + 6);
+    // }
+    // else if (diff < 0) {
+    //   date.setDate(date.getDate() + ((-1) * diff))
+    // }
+    // else {
+    //   date.setDate(date.getDate() + 7);
+    // }
     return date;
     // console.log('findDates _date')
     // console.log(_date)
@@ -88,13 +110,11 @@ componentDidMount() {
   }
 
   render() {
-
-
-
     this.updateDay();
     // this.updateDates()
     return (
       <div className="App">
+        <button onClick={() => this.updateDates()}>Test</button>
         <Body 
           getTimeDate={this.currentDay}
           firstFriday={this.firstFriday}
