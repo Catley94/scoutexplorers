@@ -53,7 +53,7 @@ class App extends React.Component {
     }
     return new Date(_date);
     
-}
+
 
 componentDidMount() {
   this.updateDates();
