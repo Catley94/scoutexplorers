@@ -2,88 +2,154 @@ import React from 'react';
 import './main.css';
 import explorerLogo from './media/Explorers.png';
 import scoutLogo from './media/Scouts.png';
+import Body from './Body/Body';
 
-function App() {
-  return (
-    <div className="App">
-      <div className="jumbotron text-center">
-        <div className="row">
-          <div className="col-sm-6">
-          <img className="explorerImg" src={explorerLogo} />
-          </div>
-          <div className="col-sm-6">
-          <img className="scoutImg" src={scoutLogo} />
-          </div>
-        </div>
-      </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12 text-center">
-            <h1><b>Goudhurst Explorers</b></h1>
-            <br />
-          </div>
-          <div className="col-sm-12 text-center">
-          <p>
-            Explorers are the next <s>troop</s> <u>unit</u> after Scouts, our age group ranges from 14 - 18 years old. We meet on Friday evenings between 7 - 9PM.
-          </p>
-          </div>
-          <div className="col-sm-12">
-          <h3>A little bit about us from the scout website</h3>
-          <p>
-            With the support, direction and guidance of Unit leaders, Explorer Scouts are encouraged to lead themselves, design their own programme and work towards the top awards that Scouting offers. 
-            With exciting prospects like being a part of camps and expeditions both home and abroad; adventurous activities such as mountaineering, parascending and off shore sailing; Explorers offers fun and adventure for all. 
-            Explorers also have the opportunity to be a part of The Explorer Scout Young Leaders’ Scheme which develops their leadership skills and sense of responsibility, by helping to run meetings for younger sections.
-            </p>
-        </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-12">
-            <h3>Schedule</h3>
-            <br />
-            <table>
-              <tbody>
-                <tr>
-                  <th>10/01/20</th>
-                  <td>Antarctica Night</td>
-                  <td>Notes: A night of games and sleep over. In order to attend, you must raise atleast £20 beforehand, please see email for more information.</td>
-                </tr>
-                <tr>
-                  <th>17/01/20</th>
-                  <td>Scheduling night</td>
-                  <td>Notes: Will be planning the rest of the term</td>
-                </tr>
-                <tr>
-                  <th>24/01/20</th>
-                  <td>Undecided</td>
-                  <td>Notes:</td>
-                </tr>
-                <tr>
-                  <th>31/01/20</th>
-                  <td>Undecided</td>
-                  <td>Notes:</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-12">
-            <br />
-            <p>If you have any questions please don't hesitate to ask, please click <a href="mailto:goudhurstexplorergroup@hotmail.com">here</a> to email us.</p>
-          </div>
-        </div> 
-        <div className="row">
-          <div className="col-sm-12">            
-            <br/>
-            <i>
-              This website is currently in development and will likely change mutliple times. 
-              However if you wish to get updates on the website with regards to major content change, please <a href="mailto:goudhurstexplorergroup@hotmail.com?subject=Subscription for website updates">email by clicking here</a> with a subject of "Subscription for website updates".
-              </i>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstFridayDate: null,
+      firstFridayMonth: 0,
+      firstFriday: new Date(),
+      secondFridayDate: null,
+      secondFridayMonth: 0,
+      secondFriday: new Date(),
+      thirdFridayDate: null,
+      thirdFridayMonth: 0,
+      thirdFriday: new Date(),
+      fourthFridayDate: null,
+      fourthFridayMonth: 0,
+      fourthFriday: new Date(),
+      editableDate: new Date(),
+    }
+  }
+  currentDay = "";
+  d = new Date();
+  
+  currentDayNumber = this.d.getDay();
+  friday = 5;
+  
+  fifthFriday;
+  latestDateResult;
+  days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  
+  
+  updateDay() {
+    this.currentDay = this.days[this.d.getDay()];
+  }
+
+  findDates(dayNumber, date) {
+    let diff = date.getDay() - dayNumber;
+    let _date;
+    if (diff > 0) {
+        _date = date.setDate(date.getDate() + 6);
+    }
+    else if (diff < 0) {
+      _date = date.setDate(date.getDate() + ((-1) * diff))
+    }
+    else {
+      _date = date.setDate(date.getDate() + 7);
+    }
+    return new Date(_date);
+    
+
+
+componentDidMount() {
+  this.updateDates();
 }
 
+  updateDates() {
+    let dateClone = new Date(+this.state.editableDate);
+    let _date = this.findDates(5, dateClone);
+    function ordinalIndicator(_date) {
+      let indicator;
+      if(_date.getDate() === 1) {
+        indicator = JSON.stringify(_date.getDate())+'st'
+      } else if (_date.getDate() === 2) {
+        indicator = JSON.stringify(_date.getDate())+'nd'
+      } else if (_date.getDate() === 3) {
+        indicator = JSON.stringify(_date.getDate())+'rd'
+      } else {
+        indicator = JSON.stringify(_date.getDate())+'th'
+      }
+      return indicator;
+    }
+    /*****************************************
+      First Friday
+    ******************************************/
+    this.setState({
+      firstFriday: _date,
+      firstFridayDate: ordinalIndicator(_date),
+      firstFridayMonth: this.months[_date.getMonth()]
+    }, () => {
+      // console.log('firstFriday after state update')
+      // console.log(this.state.firstFriday)
+    })
+    /*****************************************
+      Second Friday
+    ******************************************/
+    let dateClone2 = new Date(+_date.getTime())
+    let _date2 = this.findDates(5, dateClone2);
+    this.setState({
+      secondFriday: _date2,
+      secondFridayDate: ordinalIndicator(_date2),
+      secondFridayMonth: this.months[_date2.getMonth()]
+    }, () => {
+      // console.log('secondFriday after state update')
+      // console.log(this.state.secondFriday)
+    })
+    /*****************************************
+      Third Friday
+    ******************************************/
+    let dateClone3 = new Date(+_date2.getTime())
+    let _date3 = this.findDates(5, dateClone3);
+    this.setState({
+      thirdFriday: _date3,
+      thirdFridayDate: ordinalIndicator(_date3),
+      thirdFridayMonth: this.months[_date3.getMonth()]
+    }, () => {
+      // console.log('thirdFriday after state update')
+      // console.log(this.state.thirdFriday)
+    })
+    /*****************************************
+      Fourth Friday
+    ******************************************/
+    let dateClone4 = new Date(+_date3.getTime())
+    let _date4 = this.findDates(5, dateClone4);
+    this.setState({
+      fourthFriday: _date4,
+      fourthFridayDate: ordinalIndicator(_date4),
+      fourthFridayMonth: this.months[_date4.getMonth()]
+    }, () => {
+      // console.log('fourthFriday after state update')
+      // console.log(this.state.fourthFriday)
+    })
+    
+    
+    
+  }
+  render() {
+    this.updateDay();
+    
+    return (
+      <div className="App">
+        <Body 
+          getTimeDate={this.currentDay}
+          firstFriday={this.firstFriday}
+          firstFridayDate={this.state.firstFridayDate}
+          firstFridayMonth={this.state.firstFridayMonth}
+          secondFridayDate={this.state.secondFridayDate}
+          secondFridayMonth={this.state.secondFridayMonth}
+          thirdFridayDate={this.state.thirdFridayDate}
+          thirdFridayMonth={this.state.thirdFridayMonth}
+          fourthFridayDate={this.state.fourthFridayDate}
+          fourthFridayMonth={this.state.fourthFridayMonth}
+        />
+      </div>
+    );
+  
+  }
+  
+}
 export default App;
