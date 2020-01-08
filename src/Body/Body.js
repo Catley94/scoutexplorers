@@ -44,25 +44,24 @@ const Body = props => {
             <table>
               <tbody>
                 <tr>
-  <th>{props.firstFridayDate} {props.firstFridayMonth}</th>
-                  <td>Fundraising</td>
-                  <td>Notes: We will be creating things that can be sold during "Late night shopping"</td>
+                  <th>{props.firstFridayDate} {props.firstFridayMonth}</th>
+                  <td>Antarctica Night</td>
+                  <td>Notes: A night of games and sleep over. In order to attend, you must raise atleast £20 beforehand, please see email for more information.</td>
                 </tr>
                 <tr>
                   <th>{props.secondFridayDate} {props.secondFridayMonth}</th>
-                  <td>Games</td>
-                  <td>Notes:</td>
+                  <td>Scheduling night</td>
+                  <td>Notes: Will be planning the rest of the term</td>
                 </tr>
                 <tr>
                   <th>{props.thirdFridayDate} {props.thirdFridayMonth}</th>
-                  <td>Mince Pies, Christmas Decorations, Christmas themed games</td>
-                  <td>Notes: Please bring along any ingrediants/ideas/resources for christmas related things!</td>
+                  <td>Undecided</td>
+                  <td>Notes:</td>
                 </tr>
                 <tr>
                   <th>{props.fourthFridayDate} {props.fourthFridayMonth}</th>
-                  <td><strong>Jump In @ Tonbridge</strong></td>
-                  <td>Notes: <strong>7PM - 9PM</strong>, Please drop off and pick up your explorer at the below address.<br/>
-                  Address: <strong>2, Morley Rd, Tonbridge TN9 1RA</strong></td>
+                  <td>Undecided</td>
+                  <td>Notes:</td>
                 </tr>
               </tbody>
             </table>
