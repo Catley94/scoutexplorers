@@ -4,8 +4,6 @@ import explorerLogo from '../media/Explorers.png';
 import scoutLogo from '../media/Scouts.png';
 
 const Body = props => {
-  console.log('props.firstFridayDate')
-  console.log(props.firstFridayDate)
   return (
     <div className="App">
       <div className="jumbotron text-center">
@@ -41,27 +39,27 @@ const Body = props => {
         <div className="row">
           <div className="col-sm-12">
             <h3>Schedule</h3>
-  <h3>Today is {props.getTimeDate}, the next explorer session is {props.firstFridayDate}</h3>
+  <h3>Today is {props.getTimeDate}, the next explorer session is the {props.firstFridayDate} {props.firstFridayMonth}.</h3>
             <br />
             <table>
               <tbody>
                 <tr>
-                  <th>22/11/19</th>
+  <th>{props.firstFridayDate} {props.firstFridayMonth}</th>
                   <td>Fundraising</td>
                   <td>Notes: We will be creating things that can be sold during "Late night shopping"</td>
                 </tr>
                 <tr>
-                  <th>29/11/19</th>
+                  <th>{props.secondFridayDate} {props.secondFridayMonth}</th>
                   <td>Games</td>
                   <td>Notes:</td>
                 </tr>
                 <tr>
-                  <th>06/12/19</th>
+                  <th>{props.thirdFridayDate} {props.thirdFridayMonth}</th>
                   <td>Mince Pies, Christmas Decorations, Christmas themed games</td>
                   <td>Notes: Please bring along any ingrediants/ideas/resources for christmas related things!</td>
                 </tr>
                 <tr>
-                  <th>13/12/19</th>
+                  <th>{props.fourthFridayDate} {props.fourthFridayMonth}</th>
                   <td><strong>Jump In @ Tonbridge</strong></td>
                   <td>Notes: <strong>7PM - 9PM</strong>, Please drop off and pick up your explorer at the below address.<br/>
                   Address: <strong>2, Morley Rd, Tonbridge TN9 1RA</strong></td>
