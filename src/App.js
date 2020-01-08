@@ -52,7 +52,7 @@ class App extends React.Component {
       _date = date.setDate(date.getDate() + 7);
     }
     return new Date(_date);
-    
+  }
 
 
 componentDidMount() {
