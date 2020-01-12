@@ -8,18 +8,85 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstFridayDate: null,
-      firstFridayMonth: 0,
-      firstFriday: new Date(),
-      secondFridayDate: null,
-      secondFridayMonth: 0,
-      secondFriday: new Date(),
-      thirdFridayDate: null,
-      thirdFridayMonth: 0,
-      thirdFriday: new Date(),
-      fourthFridayDate: null,
-      fourthFridayMonth: 0,
-      fourthFriday: new Date(),
+      f1: {
+        firstFridayDate: null,
+        firstFridayMonth: 0,
+        firstFriday: new Date(),
+        description: "",
+        notes: ""
+      },
+      f2: {
+        secondFridayDate: null,
+        secondFridayMonth: 0,
+        secondFriday: new Date(),
+        description: "",
+        notes: ""
+      },
+      f3: {
+        thirdFridayDate: null,
+        thirdFridayMonth: 0,
+        thirdFriday: new Date(),
+        description: "",
+        notes: ""
+      },
+      f4: {
+        fourthFridayDate: null,
+        fourthFridayMonth: 0,
+        fourthFriday: new Date(),
+        description: "",
+        notes: ""
+      },
+      schedule: [
+        {
+
+          name: "jan17",
+          date: new Date(2020, 0, 17),
+          month: 0,
+          description: ""
+
+        },
+
+        {
+
+          name: "jan24",
+          date: new Date(2020, 0, 24),
+          month: 0,
+          description: ""
+
+        },
+
+        {
+
+          name: "jan31",
+          date: new Date(2020, 0, 31),
+          month: 0,
+          descrption: ""
+
+        },
+
+        {
+
+          name: "feb7",
+          date: new Date(2020, 1, 7),
+          month: 1,
+          description: ""
+
+        },
+
+        {
+          name: "feb14",
+          date: new Date(2020, 1, 14),
+          month: 1,
+          description: ""
+        },
+        
+        {
+          name: "feb21",
+          date: new Date(2020, 1, 21),
+          month: 1,
+          description: ""
+          },
+      ],
       editableDate: new Date(),
     }
   }
@@ -79,9 +146,12 @@ componentDidMount() {
       First Friday
     ******************************************/
     this.setState({
-      firstFriday: _date,
-      firstFridayDate: ordinalIndicator(_date),
-      firstFridayMonth: this.months[_date.getMonth()]
+      f1: {
+        firstFriday: _date,
+        firstFridayDate: ordinalIndicator(_date),
+        firstFridayMonth: this.months[_date.getMonth()]
+      }
+
     }, () => {
       // console.log('firstFriday after state update')
       // console.log(this.state.firstFriday)
@@ -92,9 +162,12 @@ componentDidMount() {
     let dateClone2 = new Date(+_date.getTime())
     let _date2 = this.findDates(5, dateClone2);
     this.setState({
-      secondFriday: _date2,
-      secondFridayDate: ordinalIndicator(_date2),
-      secondFridayMonth: this.months[_date2.getMonth()]
+      f2: {
+        secondFriday: _date2,
+        secondFridayDate: ordinalIndicator(_date2),
+        secondFridayMonth: this.months[_date2.getMonth()]
+      }
+
     }, () => {
       // console.log('secondFriday after state update')
       // console.log(this.state.secondFriday)
@@ -105,9 +178,12 @@ componentDidMount() {
     let dateClone3 = new Date(+_date2.getTime())
     let _date3 = this.findDates(5, dateClone3);
     this.setState({
-      thirdFriday: _date3,
-      thirdFridayDate: ordinalIndicator(_date3),
-      thirdFridayMonth: this.months[_date3.getMonth()]
+      f3: {
+        thirdFriday: _date3,
+        thirdFridayDate: ordinalIndicator(_date3),
+        thirdFridayMonth: this.months[_date3.getMonth()]
+      }
+
     }, () => {
       // console.log('thirdFriday after state update')
       // console.log(this.state.thirdFriday)
@@ -118,16 +194,24 @@ componentDidMount() {
     let dateClone4 = new Date(+_date3.getTime())
     let _date4 = this.findDates(5, dateClone4);
     this.setState({
-      fourthFriday: _date4,
-      fourthFridayDate: ordinalIndicator(_date4),
-      fourthFridayMonth: this.months[_date4.getMonth()]
+      f4: {
+        fourthFriday: _date4,
+        fourthFridayDate: ordinalIndicator(_date4),
+        fourthFridayMonth: this.months[_date4.getMonth()] 
+      }
+
     }, () => {
       // console.log('fourthFriday after state update')
       // console.log(this.state.fourthFriday)
     })
     
-    
-    
+    console.log(this.state.schedule)
+    let schedule = this.state.schedule;
+    schedule.find(session => {
+      const nextSession = session.date.getTime() > Date.now()
+      console.log(nextSession)
+    })
+
   }
   render() {
     this.updateDay();
@@ -136,15 +220,15 @@ componentDidMount() {
       <div className="App">
         <Body 
           getTimeDate={this.currentDay}
-          firstFriday={this.firstFriday}
-          firstFridayDate={this.state.firstFridayDate}
-          firstFridayMonth={this.state.firstFridayMonth}
-          secondFridayDate={this.state.secondFridayDate}
-          secondFridayMonth={this.state.secondFridayMonth}
-          thirdFridayDate={this.state.thirdFridayDate}
-          thirdFridayMonth={this.state.thirdFridayMonth}
-          fourthFridayDate={this.state.fourthFridayDate}
-          fourthFridayMonth={this.state.fourthFridayMonth}
+          firstFriday={this.state.f1.firstFriday}
+          firstFridayDate={this.state.f1.firstFridayDate}
+          firstFridayMonth={this.state.f1.firstFridayMonth}
+          secondFridayDate={this.state.f2.secondFridayDate}
+          secondFridayMonth={this.state.f2.secondFridayMonth}
+          thirdFridayDate={this.state.f3.thirdFridayDate}
+          thirdFridayMonth={this.state.f3.thirdFridayMonth}
+          fourthFridayDate={this.state.f4.fourthFridayDate}
+          fourthFridayMonth={this.state.f4.fourthFridayMonth}
         />
       </div>
     );

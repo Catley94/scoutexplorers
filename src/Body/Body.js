@@ -45,13 +45,13 @@ const Body = props => {
               <tbody>
                 <tr>
                   <th>{props.firstFridayDate} {props.firstFridayMonth}</th>
-                  <td>Antarctica Night</td>
-                  <td>Notes: A night of games and sleep over. In order to attend, you must raise atleast £20 beforehand, please see email for more information.</td>
+                  <td>Scheduling night</td>
+                  <td>Notes: Will be planning the rest of the term.</td>
                 </tr>
                 <tr>
                   <th>{props.secondFridayDate} {props.secondFridayMonth}</th>
-                  <td>Scheduling night</td>
-                  <td>Notes: Will be planning the rest of the term</td>
+                  <td>Undecided</td>
+                  <td>Notes:</td>
                 </tr>
                 <tr>
                   <th>{props.thirdFridayDate} {props.thirdFridayMonth}</th>
