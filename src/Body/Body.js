@@ -4,6 +4,18 @@ import explorerLogo from '../media/Explorers.png';
 import scoutLogo from '../media/Scouts.png';
 
 const Body = props => {
+  /*
+    If props.firstFridayDate is equal to today's date, return "this evening" in bold.
+    else - return next explorer date.
+  */
+  const ifToday = (today) => {
+    const dateToday = new Date().getDate() - 1;
+    if(today === dateToday) {
+      return `the ${props.firstFridayDate} ${props.firstFridayMonth}`;
+    }
+    return <b>this evening</b>;
+  }
+  
   return (
     <div className="App">
       <div className="jumbotron text-center">
@@ -39,7 +51,7 @@ const Body = props => {
         <div className="row">
           <div className="col-sm-12">
             <h3>Schedule</h3>
-  <h3>Today is {props.getTimeDate}, the next explorer session is the {props.firstFridayDate} {props.firstFridayMonth}.</h3>
+  <h3>Today is {props.getTimeDate}, the next explorer session is {ifToday(props.firstFridayDate)}.</h3>
             <br />
             <table>
               <tbody>
