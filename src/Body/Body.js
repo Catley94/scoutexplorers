@@ -89,7 +89,7 @@ const Body = props => {
             <p>If you have any questions please don't hesitate to ask, please click <a href="mailto:goudhurstexplorergroup@hotmail.com">here</a> to email us.</p>
           </div>
         </div> 
-        <div className="row">
+        {/* <div className="row">
           <div className="col-sm-12">            
             <br/>
             <i>
@@ -97,7 +97,7 @@ const Body = props => {
               However if you wish to get updates on the website with regards to major content change, please <a href="mailto:goudhurstexplorergroup@hotmail.com?subject=Subscription for website updates">email by clicking here</a> with a subject of "Subscription for website updates".
               </i>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
