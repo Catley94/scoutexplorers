@@ -9,9 +9,9 @@ const Body = props => {
     else - return next explorer date.
   */
   const ifToday = (today) => {
-    const dateToday = new Date().getDate() - 1;
+    const dateToday = new Date().getDate();
     if(today === dateToday) {
-      return `the ${props.firstFridayDate} ${props.firstFridayMonth}`;
+      return `the ${props.f1.firstFridayDate} ${props.f1.firstFridayMonth}`;
     }
     return <b>this evening</b>;
   }
@@ -21,10 +21,10 @@ const Body = props => {
       <div className="jumbotron text-center">
         <div className="row">
           <div className="col-sm-6">
-          <img className="explorerImg" src={explorerLogo} />
+          <img className="explorerImg" src={explorerLogo} alt="Explorer Logo"/>
           </div>
           <div className="col-sm-6">
-          <img className="scoutImg" src={scoutLogo} />
+          <img className="scoutImg" src={scoutLogo} alt="Scout Logo"/>
           </div>
         </div>
       </div>
@@ -51,33 +51,29 @@ const Body = props => {
         <div className="row">
           <div className="col-sm-12">
             <h3>Schedule</h3>
-  <h3>Today is {props.getTimeDate}, the next explorer session is {ifToday(props.firstFridayDate)}.</h3>
+  <h3>Today is {props.getTimeDate}, the next explorer session is {ifToday(props.f1.firstFridayDate)}.</h3>
             <br />
             <table>
               <tbody>
                 <tr>
-                  {/* <th>{props.firstFridayDate} {props.firstFridayMonth}</th> */}
-                  <th>17th January</th>
-                  <td>Scheduling night</td>
-                  <td>Notes: Will be planning the rest of the term.</td>
+                  <th>{props.f1.firstFridayDate} {props.f1.firstFridayMonth}</th>
+                  <td>{props.f1.title}</td>
+                  <td>{props.f1.notes}</td>
                 </tr>
                 <tr>
-                  {/* <th>{props.secondFridayDate} {props.secondFridayMonth}</th> */}
-                  <th>24th January</th>
-                  <td>Undecided</td>
-                  <td>Notes:</td>
+                  <th>{props.f2.secondFridayDate} {props.f2.secondFridayMonth}</th>
+                  <td>{props.f2.title}</td>
+                  <td>{props.f2.notes}</td>
                 </tr>
                 <tr>
-                  {/* <th>{props.thirdFridayDate} {props.thirdFridayMonth}</th> */}
-                  <th>31st January</th>
-                  <td>Undecided</td>
-                  <td>Notes:</td>
+                  <th>{props.f3.thirdFridayDate} {props.f3.thirdFridayMonth}</th>
+                  <td>{props.f3.title}</td>
+                  <td>{props.f3.notes}</td>
                 </tr>
                 <tr>
-                  {/* <th>{props.fourthFridayDate} {props.fourthFridayMonth}</th> */}
-                  <th>7th February</th>
-                  <td>Undecided</td>
-                  <td>Notes:</td>
+                  <th>{props.f4.fourthFridayDate} {props.f4.fourthFridayMonth}</th>
+                  <td>{props.f4.title}</td>
+                  <td>{props.f4.notes}</td>
                 </tr>
               </tbody>
             </table>
@@ -89,7 +85,7 @@ const Body = props => {
             <p>If you have any questions please don't hesitate to ask, please click <a href="mailto:goudhurstexplorergroup@hotmail.com">here</a> to email us.</p>
           </div>
         </div> 
-        <div className="row">
+        {/* <div className="row">
           <div className="col-sm-12">            
             <br/>
             <i>
@@ -97,7 +93,7 @@ const Body = props => {
               However if you wish to get updates on the website with regards to major content change, please <a href="mailto:goudhurstexplorergroup@hotmail.com?subject=Subscription for website updates">email by clicking here</a> with a subject of "Subscription for website updates".
               </i>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
