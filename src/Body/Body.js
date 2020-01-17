@@ -44,22 +44,26 @@ const Body = props => {
             <table>
               <tbody>
                 <tr>
-                  <th>{props.firstFridayDate} {props.firstFridayMonth}</th>
+                  {/* <th>{props.firstFridayDate} {props.firstFridayMonth}</th> */}
+                  <th>17th January</th>
                   <td>Scheduling night</td>
                   <td>Notes: Will be planning the rest of the term.</td>
                 </tr>
                 <tr>
-                  <th>{props.secondFridayDate} {props.secondFridayMonth}</th>
+                  {/* <th>{props.secondFridayDate} {props.secondFridayMonth}</th> */}
+                  <th>24th January</th>
                   <td>Undecided</td>
                   <td>Notes:</td>
                 </tr>
                 <tr>
-                  <th>{props.thirdFridayDate} {props.thirdFridayMonth}</th>
+                  {/* <th>{props.thirdFridayDate} {props.thirdFridayMonth}</th> */}
+                  <th>31st January</th>
                   <td>Undecided</td>
                   <td>Notes:</td>
                 </tr>
                 <tr>
-                  <th>{props.fourthFridayDate} {props.fourthFridayMonth}</th>
+                  {/* <th>{props.fourthFridayDate} {props.fourthFridayMonth}</th> */}
+                  <th>7th February</th>
                   <td>Undecided</td>
                   <td>Notes:</td>
                 </tr>
