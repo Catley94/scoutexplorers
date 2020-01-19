@@ -9,11 +9,11 @@ const Body = props => {
     else - return next explorer date.
   */
   const ifToday = (today) => {
-    const dateToday = new Date().getDate() - 1;
+    const dateToday = new Date().getDate();
     if(today === dateToday) {
-      return `the ${props.firstFridayDate} ${props.firstFridayMonth}`;
+      return <b>this evening</b>;
     }
-    return <b>this evening</b>;
+    return `the ${props.firstFridayDate} ${props.firstFridayMonth}`;
   }
   
   return (
@@ -51,6 +51,7 @@ const Body = props => {
         <div className="row">
           <div className="col-sm-12">
             <h3>Schedule</h3>
+  {/* <h3>Today is {props.getTimeDate}, the next explorer session is {ifToday(props.firstFridayDate)}.</h3> */}
   <h3>Today is {props.getTimeDate}, the next explorer session is {ifToday(props.firstFridayDate)}.</h3>
             <br />
             <table>
