@@ -11,9 +11,9 @@ const Body = props => {
   const ifToday = (today) => {
     const dateToday = new Date().getDate();
     if(today === dateToday) {
-      return `the ${props.f1.firstFridayDate} ${props.f1.firstFridayMonth}`;
+      return <b>this evening</b>;
     }
-    return <b>this evening</b>;
+    return `the ${props.f1.firstFridayDate} ${props.f1.firstFridayMonth}`;
   }
   
   return (

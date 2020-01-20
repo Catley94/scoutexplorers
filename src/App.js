@@ -60,8 +60,8 @@ class App extends React.Component {
           name: "jan31",
           date: new Date(2020, 0, 31),
           month: 0,
-          description: "schedule test",
-          notes: "schedule notes"
+          description: "31schedule test",
+          notes: "31schedule notes"
 
         },
 
@@ -91,7 +91,7 @@ class App extends React.Component {
           notes: ""
           },
       ],
-      editableDate: new Date(2020, 0, 10),
+      editableDate: new Date(),
     }
   }
   currentDay = "";
@@ -99,7 +99,7 @@ class App extends React.Component {
   
   currentDayNumber = this.d.getDay();
   friday = 5;
-  
+  f1Date = new Date();
   fifthFriday;
   latestDateResult;
   days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -128,6 +128,7 @@ class App extends React.Component {
 
 componentDidMount() {
   this.updateDates();
+
 }
 
   updateDates() {
@@ -149,6 +150,8 @@ componentDidMount() {
     /*****************************************
       First Friday
     ******************************************/
+  //  console.log('firstFriday before state update')
+   console.log(`_date before f1 state update ${_date}`)
     this.setState({
       f1: {
         firstFriday: _date,
@@ -160,7 +163,11 @@ componentDidMount() {
 
     }, () => {
       // console.log('firstFriday after state update')
-      // console.log(this.state.firstFriday)
+      // console.log(this.state.f1.firstFriday)
+      // console.log(`this.state.f1.firstFriday callback update ${this.state.f1.firstFriday}`)
+      // console.log(`_date callback update ${_date}`)
+      // this.f1Date = this.state.f1.firstFriday;
+
     })
     /*****************************************
       Second Friday
@@ -218,43 +225,58 @@ componentDidMount() {
       // console.log(this.state.fourthFriday)
     })
 
-
     let schedule = this.state.schedule;
-
+    // console.log(`this.state.f1.firstFriday before schedule.find ${this.state.f1.firstFriday}`)
+    // console.log(`f1Date ${this.f1Date}`)
+    // console.log(`firstFridayDate ${this.state.firstFridayDate}`)
     schedule.find(session => {
       // const nextSession = session.date.getTime()
       // console.log(new Date(nextSession))
-      console.log(`this.state.f1.firstFridayDate ${this.state.f1.firstFriday}`)
-      console.log(`this.state.f2.secondFridayDate ${this.state.f2.secondFriday}`)
-      console.log(`this.state.f3.thirdFridayDate ${this.state.f3.thirdFriday}`)
-      console.log(`this.state.f4.fourthFridayDate ${this.state.f4.fourthFriday}`)
+      // console.log(`this.state.f1.firstFridayDate within schedule.find ${this.state.f1.firstFriday}`)
+      // console.log(`this.state.f2.secondFridayDate ${this.state.f2.secondFriday}`)
+      // console.log(`this.state.f3.thirdFridayDate ${this.state.f3.thirdFriday}`)
+      // console.log(`this.state.f4.fourthFridayDate ${this.state.f4.fourthFriday}`)
       const nextSessionDay = session.date.getDate();
       // console.log(`nextSessionDay ${nextSessionDay}`)
       const nextSessionMonth = session.date.getMonth();
       // console.log(`nextSessionMonth ${nextSessionMonth}`)
+
       //F1 update
       if(nextSessionDay === this.state.f1.firstFriday.getDate() && nextSessionMonth === this.state.f1.firstFridayMonth) {
-        this.setState(prevState => ({
+        // console.log('match1')
+        
+        return (this.setState(prevState => ({
           f1: {
             ...prevState.f1,
             title: session.description,
             notes: session.notes
           }
+        }), () => {
+          // console.log(`this.state.f1.title ${this.state.f1.title}`)
+          // console.log(`session ${session.title}`)
         }))
+      } else {
+        // console.log('no match1')
       }
       if(nextSessionDay === this.state.f2.secondFriday.getDate() && nextSessionMonth === this.state.f2.secondFridayMonth) {
-        console.log('match!2')
-        this.setState(prevState => ({
+        // console.log('match!2')
+        return (this.setState(prevState => ({
           f2: {
             ...prevState.f2,
             title: session.description,
             notes: session.notes
           }
-        }))
+        })))
+      } else {
+        // console.log('no match2')
       }
+      return null;
     })
 
+    
+
   }
+
   render() {
     this.updateDay();
     
