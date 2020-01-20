@@ -65,20 +65,20 @@ const Body = props => {
                 <tr>
                   {/* <th>{props.secondFridayDate} {props.secondFridayMonth}</th> */}
                   <th>24th January</th>
-                  <td>Undecided</td>
-                  <td>Notes:</td>
+                  <td>Games</td>
+                  <td>Notes: Games night! If you want to bring any games, feel free!</td>
                 </tr>
                 <tr>
                   {/* <th>{props.thirdFridayDate} {props.thirdFridayMonth}</th> */}
                   <th>31st January</th>
-                  <td>Undecided</td>
-                  <td>Notes:</td>
+                  <td>Camping - sponsored - unconfirmed</td>
+                  <td>Notes: Will speak further about this on the 24th January.</td>
                 </tr>
                 <tr>
                   {/* <th>{props.fourthFridayDate} {props.fourthFridayMonth}</th> */}
                   <th>7th February</th>
-                  <td>Undecided</td>
-                  <td>Notes:</td>
+                  <td>Lordship Woods - Wide games - unconfirmed</td>
+                  <td>Notes: Seb - Snacks, Theo - Activities</td>
                 </tr>
               </tbody>
             </table>
