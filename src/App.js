@@ -1,6 +1,8 @@
 import React from 'react';
 import './main.css';
 import Body from './Body/Body';
+import meetings from './meeting/meeting';
+import Table from './Table/Table';
 
 class App extends React.Component {
   constructor(props) {
