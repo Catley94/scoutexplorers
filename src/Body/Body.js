@@ -65,7 +65,7 @@ const Body = props => {
                 <tr>
                   {/* <th>{props.fourthFridayDate} {props.fourthFridayMonth}</th> */}
                   <th>7th February</th>
-                  <td>Lordship Woods - Wide games - unconfirmed</td>
+                  <td>Lordship Woods - Wide games</td>
                   <td>Notes: Seb - Snacks, Theo - Activities</td>
                 </tr>
                 <tr>
