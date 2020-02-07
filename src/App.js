@@ -10,6 +10,7 @@ class App extends React.Component {
     this.state = {
       f1: {
         firstFridayDate: null,
+        firstFridayDateOrdinal: null,
         firstFridayMonth: 0,
         firstFriday: new Date(),
         description: "",
@@ -148,7 +149,8 @@ componentDidMount() {
     this.setState({
       f1: {
         firstFriday: _date,
-        firstFridayDate: ordinalIndicator(_date),
+        firstFridayDate: _date.getDate(),
+        firstFridayDateOrdinal: ordinalIndicator(_date),
         firstFridayMonth: this.months[_date.getMonth()]
       }
 
@@ -222,6 +224,7 @@ componentDidMount() {
           getTimeDate={this.currentDay}
           firstFriday={this.state.f1.firstFriday}
           firstFridayDate={this.state.f1.firstFridayDate}
+          firstFridayDateOrdinal={this.state.f1.firstFridayDateOrdinal}
           firstFridayMonth={this.state.f1.firstFridayMonth}
           secondFridayDate={this.state.f2.secondFridayDate}
           secondFridayMonth={this.state.f2.secondFridayMonth}
