@@ -116,7 +116,7 @@ class App extends React.Component {
       _date = date.setDate(date.getDate() + ((-1) * diff))
     }
     else {
-      _date = date.setDate(date.getDate() + 7);
+      _date = date.setDate(date.getDate());
     }
     return new Date(_date);
   }

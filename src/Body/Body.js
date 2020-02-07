@@ -10,6 +10,8 @@ const Body = props => {
   */
   const ifToday = (today) => {
     const dateToday = new Date().getDate();
+    console.log(`dateToday ${dateToday}`)
+    console.log(`today ${today}`)
     if(today === dateToday) {
       return <b>this evening</b>;
     }
