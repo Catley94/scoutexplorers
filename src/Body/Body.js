@@ -52,7 +52,7 @@ const Body = props => {
           <div className="col-sm-12">
             <h3>Schedule</h3>
   {/* <h3>Today is {props.getTimeDate}, the next explorer session is {ifToday(props.firstFridayDate)}.</h3> */}
-  <h3>Today is {props.getTimeDate}, the next explorer session is {ifToday(props.firstFridayDate)}.</h3>
+  <h3>Today is {props.getTimeDate}, the next explorer session is 28th February.</h3>
             <br />
             <table>
               <tbody>
