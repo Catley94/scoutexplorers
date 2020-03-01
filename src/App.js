@@ -1,9 +1,10 @@
 import React from 'react';
 import './main.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import explorerLogo from './media/Explorers.png';
-import scoutLogo from './media/Scouts.png';
-import Body from './Body/Body';
+import NavBar from './components/NavBar';
+import Header from './components/Header';
+import Middleware from './components/Middleware';
+import Body from './components/Body';
 
 class App extends React.Component {
   constructor(props) {
@@ -92,6 +93,7 @@ class App extends React.Component {
       editableDate: new Date(),
     }
   }
+  
   currentDay = "";
   d = new Date();
   
@@ -208,36 +210,41 @@ componentDidMount() {
       // console.log(this.state.fourthFriday)
     })
     
-    console.log(this.state.schedule)
+    // console.log(this.state.schedule)
     let schedule = this.state.schedule;
     schedule.find(session => {
       const nextSession = session.date.getTime() > Date.now()
-      console.log(nextSession)
+      // console.log(nextSession)
     })
 
   }
   render() {
     this.updateDay();
+
     
     return (
       <Router>
         <div className="App">
-          <Route path="/" exact render={(props) => <Body {...props}
-            getTimeDate={this.currentDay}
-            firstFriday={this.state.f1.firstFriday}
-            firstFridayDate={this.state.f1.firstFridayDate}
-            firstFridayDateOrdinal={this.state.f1.firstFridayDateOrdinal}
-            firstFridayMonth={this.state.f1.firstFridayMonth}
-            secondFridayDate={this.state.f2.secondFridayDate}
-            secondFridayMonth={this.state.f2.secondFridayMonth}
-            thirdFridayDate={this.state.f3.thirdFridayDate}
-            thirdFridayMonth={this.state.f3.thirdFridayMonth}
-            fourthFridayDate={this.state.f4.fourthFridayDate}
-            fourthFridayMonth={this.state.f4.fourthFridayMonth}
-              />} 
+          <header>
+            <Header />
+            <NavBar />
+          </header>
+          <Route path="/schedule" render={(props) => <Middleware {...props}
+              getTimeDate={this.currentDay}
+              firstFriday={this.state.f1.firstFriday}
+              firstFridayDate={this.state.f1.firstFridayDate}
+              firstFridayDateOrdinal={this.state.f1.firstFridayDateOrdinal}
+              firstFridayMonth={this.state.f1.firstFridayMonth}
+              secondFridayDate={this.state.f2.secondFridayDate}
+              secondFridayMonth={this.state.f2.secondFridayMonth}
+              thirdFridayDate={this.state.f3.thirdFridayDate}
+              thirdFridayMonth={this.state.f3.thirdFridayMonth}
+              fourthFridayDate={this.state.f4.fourthFridayDate}
+              fourthFridayMonth={this.state.f4.fourthFridayMonth}
+              />}
             />
+          <Route path="/" exact component={Body}/>
           </div>
-
         </Router>
 
     );
